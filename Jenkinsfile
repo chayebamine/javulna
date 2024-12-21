@@ -3,6 +3,7 @@ pipeline { // Defines a pipeline
 
   tools { // Configures the tools used in the pipeline
     maven 'maven' // Specifies the Maven tool that should be used in the pipeline
+    myDocker 'myDocker'
   }
 
   stages { // Defines the different stages of the pipeline
@@ -32,8 +33,8 @@ pipeline { // Defines a pipeline
       }   
     }
   stage ('Initialize') {
-   steps { def dockerHome = tool 'myDocker'
-    env.PATH = "${dockerHome}/bin:${env.PATH}"
+   steps { script {def dockerHome = tool 'myDocker'
+    env.PATH = "${dockerHome}/bin:${env.PATH}"}
          }
         }
 
