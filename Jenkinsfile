@@ -3,7 +3,7 @@ pipeline { // Defines a pipeline
 
   tools { // Configures the tools used in the pipeline
     maven 'maven' // Specifies the Maven tool that should be used in the pipeline
-    myDocker 'myDocker'
+    //myDocker 'myDocker'
   }
 
   stages { // Defines the different stages of the pipeline
