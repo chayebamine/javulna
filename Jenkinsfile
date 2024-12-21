@@ -31,9 +31,10 @@ pipeline { // Defines a pipeline
         sh 'mvn clean install' // Runs the Maven command to clean and build the project
       }   
     }
-  stage('Initialize'){
-    def dockerHome = tool 'myDocker'
+  stage ('Initialize') {
+   steps { def dockerHome = tool 'myDocker'
     env.PATH = "${dockerHome}/bin:${env.PATH}"
+         }
         }
 
         stage ('docker build') { // Defines the 'docker build' stage
